@@ -75,7 +75,7 @@ namespace StarChart.Controllers
             return CreatedAtRoute("GetById", new { id = celestialObject.Id }, celestialObject);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] CelestialObject celestialObject)
         {
             var savedCelestialObject = _context.CelestialObjects.Find(id);
@@ -126,7 +126,7 @@ namespace StarChart.Controllers
             _context.CelestialObjects.RemoveRange(celestialObjects);
             _context.SaveChanges();
 
-            return NoContent();
+            return NoContent(); 
         }
 
     }
